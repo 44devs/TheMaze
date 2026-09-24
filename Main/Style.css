@@ -460,43 +460,64 @@ html, body {
 #creditsScreen.fade-out { opacity: 0; pointer-events: none; }
 
 #pauseMenu {
-    position: fixed; inset: 0; z-index: 90000;
-    display: none; align-items: center; justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(12px) brightness(0.55);
-    -webkit-backdrop-filter: blur(12px) brightness(0.55);
-    opacity: 0; transition: opacity 0.35s ease;
+    position: fixed;
+    inset: 0;
+    z-index: 90000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 70px 60px 40px;
+    background: #000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
     font-family: 'Times New Roman', Times, serif;
 }
 #pauseMenu.active { display: flex; }
 #pauseMenu.visible { opacity: 1; }
-.pause-box {
-    background: rgba(8, 10, 12, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px; padding: 40px 56px; min-width: 340px;
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.85);
-    display: flex; flex-direction: column; align-items: stretch; gap: 10px;
-}
+
 .pause-title {
-    color: #eaeaea; font-size: 32px; font-weight: normal;
-    letter-spacing: 6px; text-align: center; margin-bottom: 24px;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+    color: #eaeaea;
+    font-size: 34px;
+    font-weight: normal;
+    letter-spacing: 8px;
+    text-align: center;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.18);
+    margin-bottom: 70px;
 }
+
+.pause-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    align-items: start;
+}
+
+.pause-left  { grid-column: 1; justify-self: start; }
+.pause-mid   { grid-column: 2; justify-self: start; }
+.pause-right { grid-column: 3; justify-self: end; }
+
 .pause-btn {
-    padding: 12px 20px; font-family: 'Times New Roman', Times, serif;
-    font-size: 18px; letter-spacing: 3px; color: #cfcfcf;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 4px; cursor: pointer;
+    padding: 16px 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: #cfcfcf;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    cursor: pointer;
+    min-width: 200px;
     transition: background 0.2s ease, border-color 0.2s ease,
                 color 0.2s ease, transform 0.15s ease;
 }
 .pause-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #fff; transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.55);
+    color: #ffffff;
+    transform: scale(1.02);
 }
-.pause-btn:active { transform: scale(0.99); }
+.pause-btn:active { transform: scale(0.98); }
 
 #settingsMenu {
     position: fixed; inset: 0; z-index: 9500000;
