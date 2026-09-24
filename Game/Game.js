@@ -348,14 +348,12 @@ export class Game {
 
     setupPauseMenu() {
         document.getElementById('btnResume').addEventListener('click', () => this.resume());
-        document.getElementById('btnPauseRespawn').addEventListener('click', () => {
-            this.resume();
-            this.restartLevels();
-        });
+
         document.getElementById('btnPauseSettings').addEventListener('click', () => {
             this.settingsReturnTo = 'pause';
             this.openSettings();
         });
+
         document.getElementById('btnPauseMainMenu').addEventListener('click', () => {
             this.resume();
             this.goToMainMenu();
@@ -632,7 +630,7 @@ export class Game {
 
         const menu = document.getElementById('pauseMenu');
         menu.classList.remove('visible');
-        setTimeout(() => menu.classList.remove('active'), 320);
+        setTimeout(() => menu.classList.remove('active'), 520);
 
         this.player.keys = {};
         this.player.isSprinting = false;
